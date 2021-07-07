@@ -28,4 +28,4 @@ fi
 
 # Set neovim to be the default editor.
 # Added July 5, 2021.
-export DISPLAY=nvim
+export EDITOR=nvim
