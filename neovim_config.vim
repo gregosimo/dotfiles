@@ -1,5 +1,5 @@
 "DOTFILES
-"This files goes to $XDG_HOME/
+"This file goes to $XDG_CONFIG_HOME/neovim/init.vim
 
 call plug#begin()
 
