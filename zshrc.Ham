@@ -1,0 +1,3 @@
+# Path to my external hard drive with scientific data.
+# Added on March 13, 2022
+export GENESIS_PATH=/Volumes/Genesis

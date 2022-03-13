@@ -76,6 +76,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Import machine-specific configuration files. These configuration files
+# should be named .zshrc.$(hostname -s).
+source $HOME/.zshrc.$(hostname -s)
+# Right now this script only contains a path to my external hard drive with
+# research data and scripts.
+# Added on March 13, 2022.
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -97,7 +104,7 @@ export EDITOR=nvim
 
 # Set my default research environment
 # Added March 13, 2022
-export RESEARCH=/Volumes/Genesis/SCIENCE/
+export RESEARCH=$GENESIS_PATH/SCIENCE
 
 # Add the research scripts to PYTHONPATH
 # Added March 13, 2022
@@ -117,14 +124,14 @@ export PYTHONPATH=$PYTHONPATH:$HOME/my_python_tools/astropy_utils
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Volumes/Genesis/SCIENCE/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$GENESIS_PATH/SCIENCE/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Volumes/Genesis/SCIENCE/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Volumes/Genesis/SCIENCE/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$GENESIS_PATH/SCIENCE/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$GENESIS_PATH/SCIENCE/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Volumes/Genesis/SCIENCE/miniconda3/bin:$PATH"
+        export PATH="$GENESIS_PATH/SCIENCE/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
