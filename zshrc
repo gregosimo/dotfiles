@@ -79,16 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # Import machine-specific configuration files. These configuration files
 # should be named .zshrc.$(hostname -s).
 #
-# My hostname changed suddenly today. As I am investigating the cause of
-# this change, I am simply harcoding a substitution here.
-if [[ `hostname -s` = "salz-mac2" ]]; then
-    source $HOME/.zshrc.Ham
-else
-    source $HOME/.zshrc.$(hostname -s)
-fi
-# Right now this script only contains a path to my external hard drive with
-# research data and scripts.
-# Added on March 13, 2022.
+source $HOME/.zshrc.$(hostname -s)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -96,18 +87,16 @@ fi
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Added March 13, 2022
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set neovim to be the default editor
-# Added March 13, 2022
-export EDITOR=nvim
 
 # Set my default research environment
 # Added March 13, 2022
@@ -134,14 +123,14 @@ export PYPEIT_DIR=$RESEARCH/PypeIt/PypeIt
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$MINICONDA_PATH/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    if [ -f "$MINICONDA_PATH/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "$MINICONDA_PATH/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+        export PATH="$MINICONDA_PATH/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
