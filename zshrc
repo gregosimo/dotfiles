@@ -78,7 +78,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Import machine-specific configuration files. These configuration files
 # should be named .zshrc.$(hostname -s).
-#
 source $HOME/.zshrc.$(hostname -s)
 
 # export MANPATH="/usr/local/man:$MANPATH"
