@@ -79,6 +79,15 @@ source $ZSH/oh-my-zsh.sh
 # Import machine-specific configuration files. These configuration files
 # should be named .zshrc.$(hostname -s).
 source $HOME/.zshrc.$(hostname -s)
+##############################################################################
+# The following environment variables need to be defined in the configuration#
+# file in order for data analysis to work properly.                          #
+#                                                                            #
+# * $GENESIS_PATH - The default path to the GENESIS external hard drive.     #
+#                                                                            #
+# * $MINICONDA_PATH - The miniconda program used to do data analysis.        #
+#                                                                            #
+##############################################################################
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
