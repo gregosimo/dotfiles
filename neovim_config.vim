@@ -67,3 +67,6 @@ set nu
 
 " Access the system clipboard (Added by Gregory Simonian on March 12, 2022)
 set clipboard=unnamed
+
+" Enable ctags (Added by Gregory Simonian on June 21, 2022).
+set tags=tags
