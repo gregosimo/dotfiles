@@ -120,6 +120,10 @@ export PYTHONPATH=$PYTHONPATH:$HOME/my_python_tools/astropy-utils
 
 # Add a step for doing something with PypeIt.
 export PYPEIT_DIR=$RESEARCH/PypeIt/PypeIt
+
+# Set a path for dotfiles so that we can easily switch there.
+export DOTFILES=$HOME/web/dotfiles
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
