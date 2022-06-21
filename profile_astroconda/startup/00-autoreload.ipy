@@ -1,3 +1,4 @@
 %load_ext autoreload
 %autoreload 1
-%aimport read_catalog, path_config
+%aimport read_catalog, path_config, hrplots, catalog, models, data_splitting
+%aimport observations
