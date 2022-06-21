@@ -114,9 +114,9 @@ export RESEARCH=$GENESIS_PATH/SCIENCE
 # Added March 13, 2022
 export PYTHONPATH=$PYTHONPATH:$RESEARCH/binaries
 
-# Add astropoy_utils to PYTHONPATH
+# Add astropy_utils to PYTHONPATH
 # Added March 13, 2022
-export PYTHONPATH=$PYTHONPATH:$HOME/my_python_tools/astropy_utils
+export PYTHONPATH=$PYTHONPATH:$HOME/my_python_tools/astropy-utils
 
 # Add a step for doing something with PypeIt.
 export PYPEIT_DIR=$RESEARCH/PypeIt/PypeIt

@@ -16,6 +16,9 @@ Current dotfiles which are being followed:
 - **zshrc** (~/.zshrc): Configuration for zsh.
 - **zshrc.msalz-mac2** (~/.zshrc.Ham): Machine specific configuration for Ham. Mostly to standardize paths for my external hard drive.
 - **zshrc.Whitcomb** (~/.zshrc.Whitcomb): Machine-specific configuration for Whitcomb. Mostly to standardize paths for my external hard drive.
+
+#### Tmux
+- **tmux.conf** (~/.tmux.conf): Configuration file for tmux (not complete)
 - 
 ### VIM
 - neovim_config.vim ($XDG_CONFIG_HOME/neovim/init.vim): Configuration file for neovim with plugins. Make sure you have vim-plug installed.
