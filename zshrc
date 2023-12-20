@@ -124,6 +124,11 @@ export PYPEIT_DIR=$RESEARCH/PypeIt/PypeIt
 # Set a path for dotfiles so that we can easily switch there.
 export DOTFILES=$HOME/web/dotfiles
 
+# Set a path for the AstroML data
+export ASTROML_PATH=$GENESIS_PATH/AstroML
+# Set data to be actually stored in $ASTROML_PATH
+export ASTROML_DATA=$ASTROML_PATH/astroML_data
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -135,14 +140,14 @@ export DOTFILES=$HOME/web/dotfiles
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$MINICONDA_PATH/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$MINICONDA_PATH/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "$MINICONDA_PATH/miniconda/base/etc/profile.d/conda.sh"
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="$MINICONDA_PATH/miniconda/base/bin:$PATH"
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
