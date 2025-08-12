@@ -3,9 +3,6 @@
 
 Anytime I migrate my data, I invariably forget to copy over personal config files. Well, never again! This time I will make a GitHub repository with my dotfiles, and then symlink them to their locations. As a result, they will be backed up as well as version controlled and documented in case of any issues.
 
-<<<<<<< HEAD
-Current configuration files are:
-=======
 Current dotfiles which are being followed:
 
 ### Shell scripts
@@ -33,4 +30,10 @@ Current dotfiles which are being followed:
 
 - **aliases_act.sh** ($CONDA_PREFIX/etc/conda/activate.d/aliases_act.sh): Automatically load up the astroconda profile in ipython. The $CONDA_PREFIX should correspond to the environment variable in the astroconda environment.
 - **aliases_deact** ($CONDA_PREFIX/etc/conda/deactivate.d/aliases_deact.sh): Automatically unalias ipython when the astroconda environment is deactivated. The $CONDA_PREFIX should correspond to the environment variable in the astroconda environment.
+
+## Installation Instructions
+
+1. Clone the repository into a convenient place (e.g. $HOME)
+
+2. Set up symbolic links from the dotfiles in the repository to the config locations (It would be nice to automate this). I always forget the syntax of ln, so I will just say it is `ln -s $DOTFILE/file $CONFIG_LOCATION/file`.
 
