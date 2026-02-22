@@ -5,6 +5,8 @@ Anytime I migrate my data, I invariably forget to copy over personal config file
 
 Current dotfiles which are being followed:
 
+## NOTE: I believe chezmoi (https://www.chezmoi.io/) is a better way of managing this. Look into it!
+
 ### Shell scripts
 - **profile** (~/.profile) : Generic profile for login shells that's not used anymore. I believe I used it because OSX would read from .profile. However, this is probably deprecated due to migrating to zsh.
 
@@ -35,5 +37,5 @@ Current dotfiles which are being followed:
 
 1. Clone the repository into a convenient place (e.g. $HOME)
 
-2. Set up symbolic links from the dotfiles in the repository to the config locations (It would be nice to automate this). I always forget the syntax of ln, so I will just say it is `ln -s $DOTFILE/file $CONFIG_LOCATION/file`.
+2. Set up symbolic links from the dotfiles in the repository to the config locations. There is a script to do this called setup_links.sh.
 
