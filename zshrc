@@ -78,7 +78,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Import machine-specific configuration files. These configuration files
 # should be named .zshrc.$(hostname -s).
-source $HOME/.zshrc.$(hostname -s)
+ZSH_MACHINE="$HOME/.zshrc.$(hostname -s)"
+if [ -e $ZSH_MACHINE ]
+then
+	source $HOME/.zshrc.$(hostname -s)
+fi
 ##############################################################################
 # The following environment variables need to be defined in the configuration#
 # file in order for data analysis to work properly.                          #
@@ -98,8 +102,10 @@ source $HOME/.zshrc.$(hostname -s)
 # Added March 13, 2022
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
+   export GIT_EDITOR='vim'
  else
    export EDITOR='nvim'
+   export GIT_EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -152,3 +158,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+#
+# Setting up XDG clearly and explicitly
+#
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+
