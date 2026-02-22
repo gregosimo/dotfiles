@@ -12,29 +12,39 @@ call plug#begin()
 
 " Make sure you use single quotes
 
-Plug 'tmhedberg/SimpylFold'
+" Plug 'tmhedberg/SimpylFold'
 
-Plug 'vim-scripts/indentpython.vim'
+" Plug 'vim-scripts/indentpython.vim'
 
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 
-Plug 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
 
-Plug 'jnurmine/Zenburn'
+" Plug 'jnurmine/Zenburn'
 
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+
+Plug 'SirVer/ultisnips'
+
+Plug 'lervag/vimtex', { 'tag': 'v2.15'}
 
 call plug#end()
 
 " Enable folding (Added by Gregory Simonian on March 12, 2022)
 set foldmethod=indent
 set foldlevel=99
+
+" Expand tabs into spaces. I like it better that way (Added by Gregory
+" Simonian on February 21, 2026)
+set tabstop=4
+set softtabstop=4
+set expandtab
 
 " Set PEP8 indentation (Added by Gregory Simonian on March 12, 2022)
 
@@ -70,3 +80,18 @@ set clipboard=unnamed
 
 " Enable ctags (Added by Gregory Simonian on June 21, 2022).
 set tags=tags
+
+" UltiSnips configuration. (Added by Gregory Simonian on November 11, 2025)
+let g:UltiSnipsExpandOrJumpTrigger	= '<tab>'
+let g:UltiSnipsJumpBackwardTrigger	= '<s-tab>'
+let g:UltiSnipsSnippetDirectories 	= [$HOME.'/.config/nvim/MySnippets']
+let g:UltiSnipsEditSplit="vertical"
+
+" Turn on filetype info (Added by Gregory Simonian on January 14, 2026).
+" filetype plugin indent on
+" Actually, I think this is unnecessary because of vim-plug
+
+" Set the minimum window width to be 80. This means that when a window is
+" active, it will expand to be a minimum size of 80. When it is no longer
+" active, it will shrink back down.
+set winwidth=80
