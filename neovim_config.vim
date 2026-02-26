@@ -107,4 +107,10 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
 
 " Select the local leader
-let maplocalleader = '\'
+" let maplocalleader = '\'
+
+" Disable insert mode mapping.
+" This is recommended since UltiSnips can do expansions.
+" However, there is a way to integrate Ultisnips with vimTex under
+" help:vimtex-imaps.
+let g:vimtex_imaps_enabled = 0
