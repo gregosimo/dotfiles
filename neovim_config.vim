@@ -35,6 +35,9 @@ Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex', { 'tag': 'v2.15'}
 
 call plug#end()
+" NOTE: plug#end() automatically executes the following:
+" filetype plugin indent on
+" syntax enable
 
 " Enable folding (Added by Gregory Simonian on March 12, 2022)
 set foldmethod=indent
@@ -95,3 +98,13 @@ let g:UltiSnipsEditSplit="vertical"
 " active, it will expand to be a minimum size of 80. When it is no longer
 " active, it will shrink back down.
 set winwidth=80
+
+" VimTeX Configurations
+" Select the viewer.
+let g:vimtex_view_method = 'zathura'
+
+" Select the LaTeX compiler.
+let g:vimtex_compiler_method = 'latexmk'
+
+" Select the local leader
+let maplocalleader = '\'
