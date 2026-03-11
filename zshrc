@@ -165,3 +165,9 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+
+# I really need to upgrade neovim beyond what is in the repository. So I have manually installed it.
+# Added by Gregory Simonian on March 1, 2026
+PATH=$HOME/nvim-linux-x86_64/bin:$PATH

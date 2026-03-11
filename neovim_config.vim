@@ -32,7 +32,11 @@ call plug#begin()
 
 Plug 'SirVer/ultisnips'
 
-Plug 'lervag/vimtex', { 'tag': 'v2.15'}
+Plug 'lervag/vimtex'
+
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'folke/tokyonight.nvim'
 
 call plug#end()
 " NOTE: plug#end() automatically executes the following:
@@ -114,3 +118,13 @@ let g:vimtex_compiler_method = 'latexmk'
 " However, there is a way to integrate Ultisnips with vimTex under
 " help:vimtex-imaps.
 let g:vimtex_imaps_enabled = 0
+
+" This is a very specific mapping for job hunting, but it is helpful for
+" putting excerpts from job descriptions into a LaTeX file.
+autocmd BufEnter main.tex inoremap jd % JOB DESCRIPTION: <C-R>+<CR>
+
+" Some commands need lua commands, so load a lua file.
+lua require('init')
+
+" Set a new color scheme.
+colorscheme tokyonight

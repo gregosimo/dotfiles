@@ -21,6 +21,7 @@ Current dotfiles which are being followed:
 - 
 ### VIM
 - neovim_config.vim ($XDG_CONFIG_HOME/neovim/init.vim): Configuration file for neovim with plugins. Make sure you have vim-plug installed.
+- neovim_config.lua ($XDG_CONFIG_HOME/neovim/init.lua): Lua configuration file that gets imported by neovim_config.vim.
 
 ### Python Development
 
