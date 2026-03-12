@@ -44,7 +44,7 @@ call plug#end()
 " syntax enable
 
 " Enable folding (Added by Gregory Simonian on March 12, 2022)
-set foldmethod=indent
+set foldmethod=marker
 set foldlevel=99
 
 " Expand tabs into spaces. I like it better that way (Added by Gregory
@@ -52,13 +52,13 @@ set foldlevel=99
 set tabstop=4
 set softtabstop=4
 set expandtab
+set shiftwidth=4
 
 " Set PEP8 indentation (Added by Gregory Simonian on March 12, 2022)
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
-    \ set shiftwidth=4 |
     \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
