@@ -128,3 +128,7 @@ lua require('init')
 
 " Set a new color scheme.
 colorscheme tokyonight
+
+" Quickly cycle between the unnamed register and system clipboard.
+" Good for if you forgot to press "+ when cutting or copying.
+:nnoremap <Leader>c :let @z=@" \| let @"=@+ \| let @+=@z<CR>
