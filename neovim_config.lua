@@ -1,5 +1,5 @@
 vim.lsp.config('harper_ls', {
-        filetypes = { "asciidoc", "c", "cpp", "cs", "gitcommit", "go", "html", "java", "javascript", "lua", "markdown", "nix", "python", "ruby", "rust", "swift", "tex", "toml", "txt", "typescript", "typescriptreact", "haskell", "cmake", "typst", "php", "dart", "clojure", "sh", },
+        filetypes = { "asciidoc", "c", "cpp", "cs", "gitcommit", "go", "html", "java", "javascript", "lua", "markdown", "nix", "python", "ruby", "rust", "swift", "tex", "toml", "text", "typescript", "typescriptreact", "haskell", "cmake", "typst", "php", "dart", "clojure", "sh", },
         settings = {
                 ["harper-ls"] = {
                         linters = {
@@ -40,3 +40,11 @@ local function quick_fix_harper()
 end
 
 vim.keymap.set('n', 'grg', quick_fix_harper, { desc = "Automatically Ignore Harper Error" })
+
+-- This is a work-related setting to help make project feedback work better.
+-- This is really only needed for doing ScaleAI work.
+vim.filetype.add({
+    pattern = {
+        ['${HOME}/Project_Feedback/*'] = 'project'
+    }
+})
