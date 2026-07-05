@@ -131,4 +131,13 @@ colorscheme tokyonight
 
 " Quickly cycle between the unnamed register and system clipboard.
 " Good for if you forgot to press "+ when cutting or copying.
-:nnoremap <Leader>c :let @z=@" \| let @"=@+ \| let @+=@z<CR>
+nnoremap <Leader>c :let @z=@" \| let @"=@+ \| let @+=@z<CR>
+
+" Don't need to put this, but just want to set it explicitly to add context.
+" Right now I am doing spell-checking through harper. As a result, it does not
+" need to be done through vim, so I am explicitly turning it off.
+set nospell
+
+" I am setting up a dictionary to look up words (NOTE: Need to install a
+" wordlist in order for it to work).
+set dictionary=/usr/share/dict/american-english
