@@ -150,3 +150,6 @@ command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
 " Add some abbrevs for  commonly misspelled words
 " Added by GRegory Simonian on June 22, 2026
 abbrev teh the
+
+" Add some audit formatting commands
+command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge
