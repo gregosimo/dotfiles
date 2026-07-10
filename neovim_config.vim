@@ -141,3 +141,8 @@ set nospell
 " I am setting up a dictionary to look up words (NOTE: Need to install a
 " wordlist in order for it to work).
 set dictionary=/usr/share/dict/american-english
+
+" I often want to copy-paste my resume into an LLM to get feedback. I will try
+" to automate this by making a vim command that can locate the start and end
+" of the text block and yank it to the clipboard register.
+command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
