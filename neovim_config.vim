@@ -153,3 +153,14 @@ abbrev teh the
 
 " Add some audit formatting commands
 command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge
+
+"In ChromeOS, there is a problem with passing data from the terminal to the
+" OS. A workaround is to use OSC52, but I only want to use it from within
+" ChromeOS. This is the best way to detect being within ChromeOS, at least
+" until Baguette. 
+let g:is_chromeos = executable('sommelier') || $SOMMELIER_VERSION != ''
+if g:is_chromeos
+    let g:clipboard = "osc52"
+endif
+" I only want to use the system clipboard when explicitly called.
+set clipboard-=unnamed
