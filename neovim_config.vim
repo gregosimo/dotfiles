@@ -146,6 +146,7 @@ set dictionary=/usr/share/dict/american-english
 " to automate this by making a vim command that can locate the start and end
 " of the text block and yank it to the clipboard register.
 command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
+command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
 
 " Add some abbrevs for  commonly misspelled words
 " Added by GRegory Simonian on June 22, 2026
