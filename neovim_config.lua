@@ -21,7 +21,7 @@ vim.lsp.config('harper_ls', {
                         client.config.settings["harper-ls"].linters.LongSentences = true
                         client.config.settings["harper-ls"].linters.NoFrenchSpaces = true
                 end
-                        client.notify("workspace/didChangeConfiguration", {
+                        client:notify("workspace/didChangeConfiguration", {
                         settings = client.config.settings,
                 })
         end,
