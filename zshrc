@@ -170,4 +170,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 
 # I really need to upgrade neovim beyond what is in the repository. So I have manually installed it.
 # Added by Gregory Simonian on March 1, 2026
-PATH=$HOME/nvim-linux-x86_64/bin:$PATH
+#PATH=$HOME/nvim-linux-x86_64/bin:$PATH
+# Commented out on July 28, 2026 because neovim was installed through homebrew.
