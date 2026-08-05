@@ -152,7 +152,7 @@ command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
 abbrev teh the
 
 " Add some audit formatting commands
-command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge
+command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | g /^=$/ norm Jk
 
 "In ChromeOS, there is a problem with passing data from the terminal to the
 " OS. A workaround is to use OSC52, but I only want to use it from within
