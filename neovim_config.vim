@@ -148,11 +148,14 @@ set dictionary=/usr/share/dict/american-english
 command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
 
 " Add some abbrevs for  commonly misspelled words
-" Added by GRegory Simonian on June 22, 2026
+" Added by Gregory Simonian on June 22, 2026. 
+" Updated Aug 25, 2026
 abbrev teh the
+abbrev hte the
 
 " Add some audit formatting commands
-command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | g /^=$/ norm Jk
+command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/g | g /^=$/ norm Jk
+
 
 "In ChromeOS, there is a problem with passing data from the terminal to the
 " OS. A workaround is to use OSC52, but I only want to use it from within
@@ -164,3 +167,9 @@ if g:is_chromeos
 endif
 " I only want to use the system clipboard when explicitly called.
 set clipboard-=unnamed
+
+" I wanted to make a command that collects 
+let headingpat = '/\v^[[:upper:] \&]+\([[:upper:] \&]+\)\:/'
+let endingpat = '/\v^[^.]*[a-zA-Z][^.]*$/-1'
+command CompileFeedback mark f | let @f="" | execute '0,/========/-1global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: '
+"global headingpat ' .,/\v^([^.]*$|.*[^\s].*)
