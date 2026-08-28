@@ -26,7 +26,7 @@ call plug#begin()
 
 " Plug 'kien/ctrlp.vim'
 
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Plug 'vim-airline/vim-airline'
 
@@ -37,6 +37,12 @@ Plug 'lervag/vimtex'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'folke/tokyonight.nvim'
+
+" Here is something tricky. Parrot.nvim is lua dependent. Let's see if
+" vim-plug will work well with it.
+Plug 'frankroeder/parrot.nvim'
+
+Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 " NOTE: plug#end() automatically executes the following:

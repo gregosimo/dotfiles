@@ -172,3 +172,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 # Added by Gregory Simonian on March 1, 2026
 #PATH=$HOME/nvim-linux-x86_64/bin:$PATH
 # Commented out on July 28, 2026 because neovim was installed through homebrew.
+
+# Want to export environment variable in a file that's not being uploaded on github.
+if [ -e $HOME/.llm_keys ]; then
+    source $HOME/.llm_keys
+fi
