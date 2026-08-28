@@ -161,7 +161,7 @@ abbrev teh the
 abbrev hte the
 
 " Add some audit formatting commands
-command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/g | g /^=$/ norm Jk
+command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/ge | g /^=$/ norm Jk
 
 
 "In ChromeOS, there is a problem with passing data from the terminal to the
@@ -178,5 +178,5 @@ set clipboard-=unnamed
 " I wanted to make a command that collects 
 let headingpat = '/\v^[[:upper:] \&]+\([[:upper:] \&]+\)\:/'
 let endingpat = '/\v^[^.]*[a-zA-Z][^.]*$/-1'
-command CompileFeedback mark f | let @f="" | execute '0,/========/-1global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: '
+command CompileFeedback mark f | let @f="" | execute '0,/========/-1global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: ' | noh 
 "global headingpat ' .,/\v^([^.]*$|.*[^\s].*)
