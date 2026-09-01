@@ -79,7 +79,7 @@ set encoding=utf-8
 " Ensure YouCompleteMe Autocomplete window goes away once it's not needed 
 " (Added by Gregory Simonian on March 12, 2022)
 "
-let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_completion=1
 
 " Make syntax highlighting pretty.
 let python_highlight_all=1
@@ -88,17 +88,15 @@ syntax on
 " Enable line numbers (Added by Gregory Simonian on March 12, 2022)
 set nu
 
-" Access the system clipboard (Added by Gregory Simonian on March 12, 2022)
-set clipboard=unnamed
-
-" Enable ctags (Added by Gregory Simonian on June 21, 2022).
-set tags=tags
-
 " UltiSnips configuration. (Added by Gregory Simonian on November 11, 2025)
 let g:UltiSnipsExpandOrJumpTrigger	= '<tab>'
 let g:UltiSnipsJumpBackwardTrigger	= '<s-tab>'
 let g:UltiSnipsSnippetDirectories 	= [$HOME.'/.config/nvim/MySnippets']
 let g:UltiSnipsEditSplit="vertical"
+
+" Enable ctags (Added by Gregory Simonian on June 21, 2022).
+" Actually, nvim-diagnostics is the better way to tags.
+set tags=tags
 
 " Turn on filetype info (Added by Gregory Simonian on January 14, 2026).
 " filetype plugin indent on
@@ -107,6 +105,8 @@ let g:UltiSnipsEditSplit="vertical"
 " Set the minimum window width to be 80. This means that when a window is
 " active, it will expand to be a minimum size of 80. When it is no longer
 " active, it will shrink back down.
+" This was actually really annoying when moving between screens with line
+" wrapping. It may be worth deciding what the default should be.
 set winwidth=80
 
 " VimTeX Configurations
@@ -125,9 +125,6 @@ let g:vimtex_compiler_method = 'latexmk'
 " help:vimtex-imaps.
 let g:vimtex_imaps_enabled = 0
 
-" This is a very specific mapping for job hunting, but it is helpful for
-" putting excerpts from job descriptions into a LaTeX file.
-autocmd BufEnter main.tex inoremap jd % JOB DESCRIPTION: <C-R>+<CR>
 
 " Some commands need lua commands, so load a lua file.
 lua require('init')
@@ -148,11 +145,6 @@ set nospell
 " wordlist in order for it to work).
 set dictionary=/usr/share/dict/american-english
 
-" I often want to copy-paste my resume into an LLM to get feedback. I will try
-" to automate this by making a vim command that can locate the start and end
-" of the text block and yank it to the clipboard register.
-command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
-command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
 
 " Add some abbrevs for  commonly misspelled words
 " Added by Gregory Simonian on June 22, 2026. 
@@ -160,8 +152,6 @@ command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
 abbrev teh the
 abbrev hte the
 
-" Add some audit formatting commands
-command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/ge | g /^=$/ norm Jk
 
 
 "In ChromeOS, there is a problem with passing data from the terminal to the
@@ -175,8 +165,24 @@ endif
 " I only want to use the system clipboard when explicitly called.
 set clipboard-=unnamed
 
+
+" Resume tips
+
+" This is a very specific mapping for job hunting, but it is helpful for
+" putting excerpts from job descriptions into a LaTeX file.
+autocmd BufEnter main.tex inoremap jd % JOB DESCRIPTION: <C-R>+<CR>
+
+" I often want to copy-paste my resume into an LLM to get feedback. I will try
+" to automate this by making a vim command that can locate the start and end
+" of the text block and yank it to the clipboard register.
+command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
+command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
+
+" Work commands
+" Add some audit formatting commands
+command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/ge | g /^=$/ norm Jk
+
 " I wanted to make a command that collects 
 let headingpat = '/\v^[[:upper:] \&]+\([[:upper:] \&]+\)\:/'
 let endingpat = '/\v^[^.]*[a-zA-Z][^.]*$/-1'
 command CompileFeedback mark f | let @f="" | execute '0,/========/-1global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: ' | noh 
-"global headingpat ' .,/\v^([^.]*$|.*[^\s].*)
