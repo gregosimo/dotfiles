@@ -177,3 +177,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 if [ -e $HOME/.llm_keys ]; then
     source $HOME/.llm_keys
 fi
+
+# Make files in $HOME/.local/bin availabile in the $PATH.
+PATH=$HOME/.local/bin:$PATH
+# This is to make pipx-installed binaries available on Crostini. Added by Gregory Simonian  on August 27, 2026
