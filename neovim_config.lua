@@ -92,5 +92,15 @@ require("parrot").setup {
           return payload
             end,
           },
-    }     
+    },     
+    hooks = {
+        ResumeCheck = function(prt, params)
+            local chat_prompt = [[
+            I am applying to a (Title) at (Company). I attached my resume below, as well as the job description. Let me know about what recommendations you might have to better highlight the overlap with the job description. Focus on the language and structure to highlight the overlap, do not recommend wording that suggests experiences that are not included in my cover letter. I want to highlight my existing experience without misrepresenting myself in any way.
+            ]]
+            prt.ChatNew(params, chat_prompt)
+        end,
+    }
 }
+
+
