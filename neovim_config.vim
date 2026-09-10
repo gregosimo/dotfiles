@@ -60,6 +60,9 @@ set softtabstop=4
 set expandtab
 set shiftwidth=4
 
+" I find it uch more intuitive to open new vertical splits on the right side.
+set splitright
+
 " Set PEP8 indentation (Added by Gregory Simonian on March 12, 2022)
 
 au BufNewFile,BufRead *.py
