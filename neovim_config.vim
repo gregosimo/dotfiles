@@ -155,7 +155,8 @@ set dictionary=/usr/share/dict/american-english
 abbrev teh the
 abbrev hte the
 
-
+" I think smartcase would be a useful option for me. So I am enabling it.
+set ignorecase smartcase
 
 "In ChromeOS, there is a problem with passing data from the terminal to the
 " OS. A workaround is to use OSC52, but I only want to use it from within
