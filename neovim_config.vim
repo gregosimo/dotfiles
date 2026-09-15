@@ -64,14 +64,17 @@ set shiftwidth=4
 set splitright
 
 " Set PEP8 indentation (Added by Gregory Simonian on March 12, 2022)
+" I want .rst files to follow the same formatting as well (Added by Gregory
+" Simonian on September 15, 2026).
 
-au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.py,*.rst
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix 
+
 
 " Flagging unnecessary whitespace (Added by Gregory Simonian on March 12, 2022)
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
