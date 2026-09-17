@@ -131,6 +131,13 @@ let g:vimtex_compiler_method = 'latexmk'
 " help:vimtex-imaps.
 let g:vimtex_imaps_enabled = 0
 
+" I often wrap long lines in text files. I think they will look nicer with
+" linebreak. Added by Gregory Simonian on September 16, 2026
+set wrap linebreak
+
+" I don't think I use brackets that much, but this seems like a useful option
+" to enable.
+set showmatch
 
 " Some commands need lua commands, so load a lua file.
 lua require('init')
