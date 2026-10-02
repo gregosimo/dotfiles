@@ -197,6 +197,15 @@ command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
 command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/ge | g /^=$/ norm Jk
 
 " I wanted to make a command that collects 
-let headingpat = '/\v^[[:upper:] \&]+\([[:upper:] \&]+\)\:/'
-let endingpat = '/\v^[^.]*[a-zA-Z][^.]*$/-1'
-command CompileFeedback mark f | let @f="" | execute '0,/========/-1global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: ' | noh 
+let headingpat = '/\v^[[:upper:] \& \-]+\([[:upper:] \&]+\)\:/'
+let endingpat = '/\v^[^.]*[a-zA-Z=][^.]*$/-1'
+let feedbackrange = '0,/=======/-1'
+command CompileFeedback mark f | let @f="" | execute feedbackrange 'global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: ' | noh 
+
+" Often I need to number JSON Files. Here is a script to iteratively improve
+" the task.
+command! NumberJSON let i=1 | global /^\s*{$/ substitute /^\s*{\zs/\= "\r# ITEM " . i/ | let i += 1
+
+" Match lines that start with [PASS/PASS]/[PASS/FAIL] etc.
+let passfailpat = '/\v^\[(PASS|FAIL)\/(PASS|FAIL)\]/'
+command CompileExperimental mark f | let @f="" | execute feedbackrange 'global' passfailpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: ' | noh
