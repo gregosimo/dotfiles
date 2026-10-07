@@ -196,5 +196,5 @@ command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
 let workpath = stdpath("config") .. "/work.vim"
 echo workpath
 if filereadable(workpath)
-    source workpath
+    execute "source" workpath
 endif
