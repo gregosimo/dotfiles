@@ -44,6 +44,9 @@ Plug 'frankroeder/parrot.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 
+" I think I'll only need this plugin very sparingly.
+Plug 'rickhowe/diffchar.vim'
+
 call plug#end()
 " NOTE: plug#end() automatically executes the following:
 " filetype plugin indent on
@@ -179,6 +182,12 @@ endif
 " I only want to use the system clipboard when explicitly called.
 set clipboard-=unnamed
 
+" These seem like the helpful session options. I haven't explicitly used
+" sessions yet, but I am thinking about how they could be helpful.
+set sessionoptions+=options
+set sessionoptions+=globals
+set sessionoptions-=curdir
+set sessionoptions+=sesdir
 
 " Resume tips
 
