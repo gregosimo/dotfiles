@@ -114,26 +114,36 @@ fi
 
 # Set my default research environment
 # Added March 13, 2022
-export RESEARCH=$GENESIS_PATH/SCIENCE
+# I'm not doing this research path anymore
+# Removed on Oct 23, 2026
+#export RESEARCH=$GENESIS_PATH/SCIENCE
 
 # Add the research scripts to PYTHONPATH
 # Added March 13, 2022
-export PYTHONPATH=$PYTHONPATH:$RESEARCH/binaries
+# I'm not needing this research path anymore
+# Removed on Oct 23, 2026
+# export PYTHONPATH=$PYTHONPATH:$RESEARCH/binaries
 
 # Add astropy_utils to PYTHONPATH
 # Added March 13, 2022
-export PYTHONPATH=$PYTHONPATH:$HOME/my_python_tools/astropy-utils
+# I don't need astropy_utils anymore.
+# Removed on Oct 23, 2026
+#export PYTHONPATH=$PYTHONPATH:$HOME/my_python_tools/astropy-utils
 
 # Add a step for doing something with PypeIt.
+# Not using PypeIt anymore
+# Removed on Oct 23, 2026
 export PYPEIT_DIR=$RESEARCH/PypeIt/PypeIt
 
 # Set a path for dotfiles so that we can easily switch there.
 export DOTFILES=$HOME/web/dotfiles
 
+# I don't think I'm using AstroML anymore (although I might).
+# REmoved Oct 23, 2026
 # Set a path for the AstroML data
-export ASTROML_PATH=$GENESIS_PATH/AstroML
+# export ASTROML_PATH=$GENESIS_PATH/AstroML
 # Set data to be actually stored in $ASTROML_PATH
-export ASTROML_DATA=$ASTROML_PATH/astroML_data
+# export ASTROML_DATA=$ASTROML_PATH/astroML_data
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -143,28 +153,6 @@ export ASTROML_DATA=$ASTROML_PATH/astroML_data
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-#
-# Setting up XDG clearly and explicitly
-#
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 
@@ -177,3 +165,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 if [ -e $HOME/.llm_keys ]; then
     source $HOME/.llm_keys
 fi
+
+# I think these were exported by anaconda.
+export PATH="/home/gregory/.local/bin:$PATH"
+
+export PATH="/home/gregory/.ana/bin:$PATH"
