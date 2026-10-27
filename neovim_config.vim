@@ -73,6 +73,7 @@ set splitright
 au BufNewFile,BufRead *.py,*.rst
     \ set tabstop=4 |
     \ set softtabstop=4 |
+    \ set shiftwidth=4 |
     \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
@@ -201,11 +202,9 @@ autocmd BufEnter main.tex inoremap jd % JOB DESCRIPTION: <C-R>+<CR>
 command ResumePaste /\\makecvtitle$/,/\\end{document}/-1y +
 command CoverLetterPaste /^\\makelettertitle$/+2,/^\\end{document}$/-1y +
 
-" Work commands
-" Add some audit formatting commands
-command StackEdit %s/\\(\|\\)/\$/ge | %s/\\\[\|\\]/\$\$/ge | %s/^\[$\|^\]$/\$\$/ge | %s/\v\$ +(.{-}) +\$/\$\1\$/ge | g /^=$/ norm Jk
-
-" I wanted to make a command that collects 
-let headingpat = '/\v^[[:upper:] \&]+\([[:upper:] \&]+\)\:/'
-let endingpat = '/\v^[^.]*[a-zA-Z][^.]*$/-1'
-command CompileFeedback mark f | let @f="" | execute '0,/========/-1global' headingpat '.,' .. endingpat 'd F' | 'fput f | execute '.norm oOVERALL TASK FEEDBACK: ' | noh 
+" Source work-related stuff.
+let workpath = stdpath("config") .. "/work.vim"
+echo workpath
+if filereadable(workpath)
+    execute "source" workpath
+endif
