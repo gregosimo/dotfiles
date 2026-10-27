@@ -167,6 +167,5 @@ if [ -e $HOME/.llm_keys ]; then
 fi
 
 # I think these were exported by anaconda.
-export PATH="/home/gregory/.local/bin:$PATH"
-
-export PATH="/home/gregory/.ana/bin:$PATH"
+PATH=$HOME/.local/bin:$PATH
+PATH=$HOME/.ana/bin:$PATH
