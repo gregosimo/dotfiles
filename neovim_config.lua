@@ -28,7 +28,49 @@ vim.lsp.config('harper_ls', {
         --]]
 })
 
+vim.lsp.config('pylsp', {
+  cmd = { "pylsp" },
+  filetypes = { "python" },
+  root_markers = {
+    "pyproject.toml", "setup.py", "setup.cfg",
+    "requirements.txt", "Pipfile", ".git",
+  },
+    settings = {
+      pylsp = {
+        plugins = {
+          pycodestyle = {
+            ignore = {'W391'},
+            maxLineLength = 100
+          },
+          autopep8 = {
+              enabled = false
+          },
+          mccabe = {
+              enabled = false
+          },
+          pyflakes = {
+              enabled = false
+          },
+        }
+      }
+}
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local function map(keys, fn, desc)
+      vim.keymap.set("n", keys, fn, { buffer = args.buf, desc = desc })
+    end
+    map("gd", vim.lsp.buf.definition, "Go to definition")
+    map("gD", vim.lsp.buf.declaration, "Go to declaration")
+    map("K",  vim.lsp.buf.hover, "Hover docs")
+    map("grr", vim.lsp.buf.references, "References")
+    map("grn", vim.lsp.buf.rename, "Rename")
+  end,
+})
+
 vim.lsp.enable('harper_ls')
+vim.lsp.enable('pylsp')
 
 local function quick_fix_harper()
         vim.lsp.buf.code_action({
