@@ -1,0 +1,33 @@
+# Ideally I would like to have a script that automatically makes symbolic links for all of these files.
+# The format of this YAML file should be a section of "config_paths" contains all the configuration paths.
+# One step below config_paths are modules that represent individual programs.
+# In most cases, each program probably only has one configuration file. 
+# But occasionally there will be several configuration files associated with a program.
+# Therefore the structure is:
+# config_paths:
+#   program1:
+#     progam1.config: "~/.config/program1.config
+#   program2:
+#     program2.txt: "~/config/program2.txt"
+#     program2.addition: "~/config/program2.addition"
+#     program2.hidden: "~/.program2"
+
+# TODO: Automate symlinking these paths
+# TODO: Automate the generation of documentation
+
+config_paths:
+  bash:
+    profile: "~/.profile"
+  zsh:
+    zshrc: "~/zshrc"
+    zshrc.Whitcomb: "~/zshrc.Whitcomb"
+  tmux:
+    tmux.conf: "~/.tmux.conf"
+  neovim:
+    neovim_config.vim: "$XDG_CONFIG/nvim/init.vim"
+  ipython:
+    profile_astroconda: "$HOME/.ipython/profile_astroconda"
+  anaconda:
+    aliases_act: "$CONDA_PREFIX/etc/conda/activate.d/aliases_act.sh"
+    aliases_deact: "$CONDA_PREFIX/etc/conda/deactivate.d/aliases_deact.sh"
+

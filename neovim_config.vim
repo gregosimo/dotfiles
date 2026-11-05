@@ -168,7 +168,7 @@ set sessionoptions-=curdir
 set sessionoptions+=sesdir
 
 " Plugin Configurations
-"
+
 " UltiSnips configuration. (Added by Gregory Simonian on November 11, 2025)
 let g:UltiSnipsExpandOrJumpTrigger	= '<tab>'
 let g:UltiSnipsJumpBackwardTrigger	= '<s-tab>'
@@ -189,6 +189,20 @@ let g:vimtex_compiler_method = 'latexmk'
 " However, there is a way to integrate Ultisnips with vimTex under
 " help:vimtex-imaps.
 let g:vimtex_imaps_enabled = 0
+
+" Set the target for vim-slime
+" Below added by Gregory Simonian on November 5, 2026 unless otherwise stated.
+let g:slime_target = "neovim"
+" Also have vim-slime try to automatically select the appropriate terminal
+" rather than selecting it from a menu every time. I don't think I'll have
+" multiple :terminals running.
+let g:slime_suggest_default = 1
+" Don't have vim-slime prompt for terminals (Maybe this will end up being a
+" problem, in which case I will fix it.
+let g:slime_menu_config = 0
+" Don't use unlisted terminals (I don't think I use them anyway, but let's
+" make it explicit.
+let g:slime_neovim_ignore_unlisted = 1
 
 " Resume tips
 
