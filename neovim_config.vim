@@ -47,10 +47,15 @@ Plug 'nvim-lua/plenary.nvim'
 " I think I'll only need this plugin very sparingly.
 Plug 'rickhowe/diffchar.vim'
 
+" Slime to send commands to a neovim terminal
+Plug 'jpalardy/vim-slime'
+
 call plug#end()
 " NOTE: plug#end() automatically executes the following:
 " filetype plugin indent on
 " syntax enable
+
+" General Vim Configurations
 
 " Enable folding (Added by Gregory Simonian on March 12, 2022)
 set foldmethod=marker
@@ -86,11 +91,6 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " Set UTF-8 (Added by Gregory Simonian on March 12, 2022) 
 set encoding=utf-8
 
-" Ensure YouCompleteMe Autocomplete window goes away once it's not needed 
-" (Added by Gregory Simonian on March 12, 2022)
-"
-" let g:ycm_autoclose_preview_window_after_completion=1
-
 " Make syntax highlighting pretty.
 let python_highlight_all=1
 syntax on
@@ -98,42 +98,19 @@ syntax on
 " Enable line numbers (Added by Gregory Simonian on March 12, 2022)
 set nu
 
-" UltiSnips configuration. (Added by Gregory Simonian on November 11, 2025)
-let g:UltiSnipsExpandOrJumpTrigger	= '<tab>'
-let g:UltiSnipsJumpBackwardTrigger	= '<s-tab>'
-let g:UltiSnipsSnippetDirectories 	= [$HOME.'/.config/nvim/MySnippets']
-let g:UltiSnipsEditSplit="vertical"
 
 " Enable ctags (Added by Gregory Simonian on June 21, 2022).
 " Actually, nvim-diagnostics is the better way to tags.
 set tags=tags
-
-" Turn on filetype info (Added by Gregory Simonian on January 14, 2026).
-" filetype plugin indent on
-" Actually, I think this is unnecessary because of vim-plug
 
 " Set the minimum window width to be 80. This means that when a window is
 " active, it will expand to be a minimum size of 80. When it is no longer
 " active, it will shrink back down.
 " This was actually really annoying when moving between screens with line
 " wrapping. It may be worth deciding what the default should be.
-set winwidth=80
+" It may be worth toggling this rather than just setting it universally.
+" set winwidth=80
 
-" VimTeX Configurations
-" Select the viewer.
-let g:vimtex_view_method = 'zathura'
-
-" Select the LaTeX compiler.
-let g:vimtex_compiler_method = 'latexmk'
-
-" Select the local leader
-" let maplocalleader = '\'
-
-" Disable insert mode mapping.
-" This is recommended since UltiSnips can do expansions.
-" However, there is a way to integrate Ultisnips with vimTex under
-" help:vimtex-imaps.
-let g:vimtex_imaps_enabled = 0
 
 " I often wrap long lines in text files. I think they will look nicer with
 " linebreak. Added by Gregory Simonian on September 16, 2026
@@ -189,6 +166,29 @@ set sessionoptions+=options
 set sessionoptions+=globals
 set sessionoptions-=curdir
 set sessionoptions+=sesdir
+
+" Plugin Configurations
+"
+" UltiSnips configuration. (Added by Gregory Simonian on November 11, 2025)
+let g:UltiSnipsExpandOrJumpTrigger	= '<tab>'
+let g:UltiSnipsJumpBackwardTrigger	= '<s-tab>'
+let g:UltiSnipsSnippetDirectories 	= [$HOME.'/.config/nvim/MySnippets']
+let g:UltiSnipsEditSplit="vertical"
+" VimTeX Configurations
+" Select the viewer.
+let g:vimtex_view_method = 'zathura'
+
+" Select the LaTeX compiler.
+let g:vimtex_compiler_method = 'latexmk'
+
+" Select the local leader
+" let maplocalleader = '\'
+
+" Disable insert mode mapping.
+" This is recommended since UltiSnips can do expansions.
+" However, there is a way to integrate Ultisnips with vimTex under
+" help:vimtex-imaps.
+let g:vimtex_imaps_enabled = 0
 
 " Resume tips
 
