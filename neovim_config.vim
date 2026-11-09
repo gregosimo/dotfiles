@@ -167,6 +167,9 @@ set sessionoptions+=globals
 set sessionoptions-=curdir
 set sessionoptions+=sesdir
 
+" Unmap unused commands.
+" I am learning a lot of vim commands, and there are 
+
 " Plugin Configurations
 
 " UltiSnips configuration. (Added by Gregory Simonian on November 11, 2025)
