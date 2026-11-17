@@ -167,8 +167,20 @@ set sessionoptions+=globals
 set sessionoptions-=curdir
 set sessionoptions+=sesdir
 
+" It seems like it may be helpful to have a persistent undo file.
+:set undofile
+
 " Unmap unused commands.
-" I am learning a lot of vim commands, and there are 
+" I am learning a lot of vim commands, and there are a bunch that are
+" C-specific that I will probably never use. I want to explicitly unmap them
+" so that I can see whether they are available to remap as something else.
+" nunmap ]/
+" nunmap ]*
+" nunmap [/
+" nunmap [*
+" nunmap [#
+" nunmap ]#
+
 
 " Plugin Configurations
 
@@ -206,6 +218,9 @@ let g:slime_menu_config = 0
 " Don't use unlisted terminals (I don't think I use them anyway, but let's
 " make it explicit.
 let g:slime_neovim_ignore_unlisted = 1
+" Slime and IPython is having issues with multilines. Bracketed paste should
+" help.
+let g:slime_bracketed_paste = 1
 
 " Resume tips
 
